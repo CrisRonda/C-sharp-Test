@@ -15,8 +15,11 @@ namespace MyApp
       // sortListBySecond terms
       // int[] input = new int[] { 1, 10, 20, 33, 13, 60, 92, 100, 21 };
       // sortListBySecondTerm(input);
-      int[] input = new int[] { 0, 0, 1, 0, 1, 0, 0, 1, 0 };
-      mineField(input);
+      // int[] input = new int[] { 0, 0, 1, 0, 1, 0, 0, 1, 0 };
+      // mineField(input);
+      int[] input = new int[] { 1, 2, 3, 4, -5, 6, 7, 8, 9, 10 };
+      largestSumInSubarrays(input, 3);
+
     }
 
     public static List<string[]> searchEngine(string input, string[] list)
@@ -69,5 +72,28 @@ namespace MyApp
       return accOneStep + accTwoStep;
     }
 
+    public static int largestSumInSubarrays(int[] listNumbers, int steps)
+    {
+      var totalItems = listNumbers.Length;
+      if (steps > totalItems)
+        return -1;
+
+      int index = 0;
+      List<int> sumSequences = new List<int>();
+      while (index < steps)
+      {
+        List<int> subarray = new List<int>();
+        for (int i = 0; i < totalItems; i++)
+        {
+          var indexFormula = i * steps + index;
+          if (indexFormula < totalItems)
+            subarray.Add(listNumbers[indexFormula]);
+        }
+        sumSequences.Add(subarray.Sum());
+        index++;
+      }
+
+      return sumSequences.Max();
+    }
   }
 }

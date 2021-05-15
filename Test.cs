@@ -41,5 +41,12 @@ namespace MyApp
     {
       Assert.AreEqual(eq, MyApp.Program.mineField(input));
     }
+
+    [TestCase(new int[] { 1, 2, 3, 4, -5, 6, 7, 8, 9, 10 }, 3, 22)]
+    public void TestLargestSumInSubarrays(int[] input, int n, int eq)
+    {
+      Assert.AreEqual(eq, MyApp.Program.largestSumInSubarrays(input, n));
+    }
+
   }
 }
