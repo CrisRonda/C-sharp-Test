@@ -9,17 +9,6 @@ namespace MyApp
     static void Main(string[] args)
     {
 
-      // string[] list = new string[]{"car", "cartouches", "carpet", "cartoonist", "carrot", "cared",
-      //   "carton", "captain", "cartoon", "carter"};
-      // searchEngine("cartoons", list);
-      // sortListBySecond terms
-      // int[] input = new int[] { 1, 10, 20, 33, 13, 60, 92, 100, 21 };
-      // sortListBySecondTerm(input);
-      // int[] input = new int[] { 0, 0, 1, 0, 1, 0, 0, 1, 0 };
-      // mineField(input);
-      int[] input = new int[] { 1, 2, 3, 4, -5, 6, 7, 8, 9, 10 };
-      largestSumInSubarrays(input, 3);
-
     }
 
     public static List<string[]> searchEngine(string input, string[] list)
@@ -94,6 +83,20 @@ namespace MyApp
       }
 
       return sumSequences.Max();
+    }
+
+    public static int rabbits(int n)
+    {
+      if (n < 0) return -1;
+      int a = 0, b = 1;
+      for (int i = 0; i < n; i++)
+      {
+        int aux = a;
+        a = b;
+        b = aux + a;
+        // Console.WriteLine("{0}: b {1}, a {2},aux {3}", i, b, a, aux);
+      }
+      return a;
     }
   }
 }

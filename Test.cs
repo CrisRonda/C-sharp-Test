@@ -48,5 +48,12 @@ namespace MyApp
       Assert.AreEqual(eq, MyApp.Program.largestSumInSubarrays(input, n));
     }
 
+    [TestCase(8, 21)]
+    public void Testrabbits(int n, int eq)
+    {
+      Assert.AreEqual(eq, MyApp.Program.rabbits(n));
+
+    }
+
   }
 }
