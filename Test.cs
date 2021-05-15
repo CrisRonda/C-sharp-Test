@@ -34,5 +34,12 @@ namespace MyApp
       CollectionAssert.AreEqual(expect, MyApp.Program.sortListBySecondTerm(input));
     }
 
+    [TestCase(new int[] { 0, 0, 1, 0, 1, 0, 0, 1, 0 }, 5)]
+    [TestCase(new int[] { 0, 1, 1, 0, 1, 0, 0, 1, 0 }, -1)]
+    [TestCase(new int[] { 0, 0, 1, 0, 0, 1, 0, 1 }, 5)]
+    public void TestMineField(int[] input, int eq)
+    {
+      Assert.AreEqual(eq, MyApp.Program.mineField(input));
+    }
   }
 }

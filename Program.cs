@@ -15,6 +15,8 @@ namespace MyApp
       // sortListBySecond terms
       // int[] input = new int[] { 1, 10, 20, 33, 13, 60, 92, 100, 21 };
       // sortListBySecondTerm(input);
+      int[] input = new int[] { 0, 0, 1, 0, 1, 0, 0, 1, 0 };
+      mineField(input);
     }
 
     public static List<string[]> searchEngine(string input, string[] list)
@@ -37,5 +39,35 @@ namespace MyApp
       newList.Sort();
       return newList.ConvertAll<int>(word => Int32.Parse(String.Join("", word.ToCharArray().Reverse()))).ToArray();
     }
+
+    public static int mineField(int[] listFileds)
+    {
+      int noWay = -1;
+      int[] stepList = new int[] { };
+      int accOneStep = 0;
+      int accTwoStep = 0;
+
+      for (int i = 0; i < listFileds.Length - 1; i++)
+      {
+        var currentItem = listFileds[i];
+        var nextItem = listFileds[i + 1];
+        if (nextItem == 1 & currentItem == 1)
+        {
+          return noWay;
+        }
+        if (nextItem == 0 & currentItem == 0)
+        {
+          accTwoStep++;
+        }
+        if (nextItem == 1 & currentItem == 0)
+        {
+          accOneStep++;
+        }
+
+      }
+
+      return accOneStep + accTwoStep;
+    }
+
   }
 }
